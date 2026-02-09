@@ -1,0 +1,37 @@
+name: portfolio_app
+description: "A Flutter mobile portfolio application with a deep ocean theme - Sheila Nicole Cheng"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  google_fonts: ^6.2.1
+  url_launcher: ^6.2.5
+  image_picker: ^1.0.7
+  provider: ^6.1.2
+  shared_preferences: ^2.2.2
+  syncfusion_flutter_pdfviewer: ^27.1.58
+  path_provider: ^2.1.1
+  share_plus: ^7.2.1
+  supabase_flutter: ^2.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/posters/
+    - assets/profile/
+    - assets/home/
+    - assets/logo/
