@@ -2536,19 +2536,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     controller: _phoneController,
     decoration: const InputDecoration(
       labelText: 'Phone',
-      hintText: 'Enter your phone number',
+      hintText: 'Enter your phone number (e.g., +63 912 345 6789)',
       prefixIcon: Icon(Icons.phone),
+      helperText: 'Include country code for international numbers',
     ),
     keyboardType: TextInputType.phone,
-    validator: (value) {
-      if (value == null || value.trim().isEmpty)
-        return 'Phone number is required';
-      return null;
-    },
-    textInputAction: TextInputAction.next,
-  );
-
-  Widget _buildLinkedInField() => TextFormField(
+    validator: _validatePhoneNumber,
     controller: _linkedInController,
     decoration: const InputDecoration(
       labelText: 'LinkedIn URL',
@@ -2724,6 +2717,27 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         .map((s) => s.trim())
         .where((s) => s.isNotEmpty)
         .toList();
+  }
+
+  String? _validatePhoneNumber(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Phone number is required';
+    }
+
+    // Remove all non-digit characters for validation
+    final digitsOnly = value.replaceAll(RegExp(r'[^0-9]'), '');
+
+    // Check if it's empty after removing non-digits
+    if (digitsOnly.isEmpty) {
+      return 'Please enter a valid phone number';
+    }
+
+    // Check length (allowing 7-15 digits which covers most phone formats)
+    if (digitsOnly.length < 7 || digitsOnly.length > 15) {
+      return 'Phone number must be between 7-15 digits';
+    }
+
+    return null;
   }
 }
 
@@ -4081,9 +4095,33 @@ class _FriendsScreenState extends State<FriendsScreen>
                   controller: phoneController,
                   decoration: const InputDecoration(
                     labelText: 'Phone (optional)',
+                    hintText: 'e.g., +63 912 345 6789',
                     prefixIcon: Icon(Icons.phone),
+                    helperText:
+                        'Include country code for international numbers',
                   ),
                   keyboardType: TextInputType.phone,
+                  validator: (value) {
+                    // Only validate if field is not empty (since it's optional)
+                    if (value != null && value.trim().isNotEmpty) {
+                      // Remove all non-digit characters for validation
+                      final digitsOnly = value.replaceAll(
+                        RegExp(r'[^0-9]'),
+                        '',
+                      );
+
+                      // Check if it's empty after removing non-digits
+                      if (digitsOnly.isEmpty) {
+                        return 'Please enter a valid phone number';
+                      }
+
+                      // Check length (allowing 7-15 digits)
+                      if (digitsOnly.length < 7 || digitsOnly.length > 15) {
+                        return 'Phone number must be between 7-15 digits';
+                      }
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
