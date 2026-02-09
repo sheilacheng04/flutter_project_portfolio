@@ -8,10 +8,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'dart:async'; 
+import 'dart:async';
 import 'dart:ui';
 import 'package:supabase_flutter/supabase_flutter.dart';
-
 
 // ============================================================================
 // MODELS
@@ -95,7 +94,8 @@ class ProfileModel {
   static ProfileModel defaultProfile() {
     return ProfileModel(
       name: 'Sheila Nicole Cheng',
-      bio: 'A creative and passionate developer with a love for design and technology. '
+      bio:
+          'A creative and passionate developer with a love for design and technology. '
           'I enjoy crafting beautiful digital experiences that merge art with functionality.',
       email: 'sheilanicoledizon@gmail.com',
       phone: '+63 912 345 6789',
@@ -109,18 +109,8 @@ class ProfileModel {
         'Python',
         'JavaScript',
       ],
-      hobbies: [
-        'Digital Art',
-        'Photography',
-        'Reading',
-        'Gaming',
-      ],
-      interests: [
-        'Technology',
-        'Art & Design',
-        'Music',
-        'Travel',
-      ],
+      hobbies: ['Digital Art', 'Photography', 'Reading', 'Gaming'],
+      interests: ['Technology', 'Art & Design', 'Music', 'Travel'],
     );
   }
 }
@@ -149,7 +139,8 @@ class ProjectModel {
       ProjectModel(
         id: '1',
         title: 'Web Portfolio',
-        description: 'This website was designed and coded to reflect my personality, interests, and skills. Inspired by underwater glass aesthetics, it focuses on smooth motion, playful interactions, and clarity. Every section was intentionally designed and developed.',
+        description:
+            'This website was designed and coded to reflect my personality, interests, and skills. Inspired by underwater glass aesthetics, it focuses on smooth motion, playful interactions, and clarity. Every section was intentionally designed and developed.',
         category: 'Web Development',
         imageUrl: 'assets/logo/Portfolio_logo.png',
         technologies: ['HTML', 'CSS', 'JavaScript'],
@@ -157,7 +148,8 @@ class ProjectModel {
       ProjectModel(
         id: '2',
         title: 'ContextuFile',
-        description: 'ContextuFile uses contextual meaning from file titles to automatically organize files into folders. Instead of manual sorting, the system analyzes keywords and intent to reduce clutter. It\'s built to make file management smarter and less annoying.',
+        description:
+            'ContextuFile uses contextual meaning from file titles to automatically organize files into folders. Instead of manual sorting, the system analyzes keywords and intent to reduce clutter. It\'s built to make file management smarter and less annoying.',
         category: 'AI/Machine Learning',
         imageUrl: 'assets/logo/Contextufile_logo.png',
         technologies: ['Python', 'spaCy', 'HTML', 'JavaScript', 'CSS'],
@@ -165,7 +157,8 @@ class ProjectModel {
       ProjectModel(
         id: '3',
         title: 'VisiTrack',
-        description: 'VisiTrack helps manage visitor data by recording entries in a structured and reliable way. It focuses on accuracy, accountability, and ease of use, making manual tracking less chaotic. The system was designed with both function and clarity in mind.',
+        description:
+            'VisiTrack helps manage visitor data by recording entries in a structured and reliable way. It focuses on accuracy, accountability, and ease of use, making manual tracking less chaotic. The system was designed with both function and clarity in mind.',
         category: 'Business Software',
         imageUrl: 'assets/logo/VisiTrack_logo.png',
         technologies: ['Outsystems'],
@@ -173,7 +166,8 @@ class ProjectModel {
       ProjectModel(
         id: '4',
         title: 'RISE PH Database',
-        description: 'RISE PH Database focuses on data integrity, organization, and efficient retrieval. It was designed to support real-world use cases that require reliable records and reporting. The system emphasizes structure over chaos.',
+        description:
+            'RISE PH Database focuses on data integrity, organization, and efficient retrieval. It was designed to support real-world use cases that require reliable records and reporting. The system emphasizes structure over chaos.',
         category: 'Database Systems',
         imageUrl: 'assets/logo/ArisePH_logo.png',
         technologies: ['Workbook', 'Frappe'],
@@ -183,7 +177,7 @@ class ProjectModel {
 }
 
 class FriendModel {
-  final String? id; 
+  final String? id;
   String name;
   String email;
   String? phone;
@@ -214,11 +208,11 @@ class FriendModel {
       'phone': phone,
       'notes': notes,
     };
-    
+
     if (id != null) {
       data['id'] = id;
     }
-    
+
     return data;
   }
 
@@ -259,49 +253,56 @@ class PosterModel {
       PosterModel(
         id: '1',
         title: 'Blue Ink Poster',
-        description: 'A striking digital artwork featuring blue ink aesthetics and artistic fluid designs.',
+        description:
+            'A striking digital artwork featuring blue ink aesthetics and artistic fluid designs.',
         imageUrl: 'assets/posters/blue_ink_poster.png',
         category: 'Digital Art',
       ),
       PosterModel(
         id: '2',
         title: 'Cross The Bridge',
-        description: 'An inspiring visual composition representing journey and transition through artistic elements.',
+        description:
+            'An inspiring visual composition representing journey and transition through artistic elements.',
         imageUrl: 'assets/posters/cross_the_bridge.png',
         category: 'Digital Art',
       ),
       PosterModel(
         id: '3',
         title: 'Nature Collage',
-        description: 'A beautiful collage blending natural elements with contemporary design principles.',
+        description:
+            'A beautiful collage blending natural elements with contemporary design principles.',
         imageUrl: 'assets/posters/nature_collage.png',
         category: 'Digital Art',
       ),
       PosterModel(
         id: '4',
         title: 'Observe',
-        description: 'A contemplative piece encouraging mindfulness and observation of the world around us.',
+        description:
+            'A contemplative piece encouraging mindfulness and observation of the world around us.',
         imageUrl: 'assets/posters/Observe.png',
         category: 'Digital Art',
       ),
       PosterModel(
         id: '5',
         title: 'Past Life',
-        description: 'An introspective artwork exploring memories and the echoes of our past.',
+        description:
+            'An introspective artwork exploring memories and the echoes of our past.',
         imageUrl: 'assets/posters/Past_life.png',
         category: 'Digital Art',
       ),
       PosterModel(
         id: '6',
         title: 'Universe',
-        description: 'A cosmic-inspired digital artwork celebrating the vastness and wonder of space.',
+        description:
+            'A cosmic-inspired digital artwork celebrating the vastness and wonder of space.',
         imageUrl: 'assets/posters/Universe.png',
         category: 'Digital Art',
       ),
       PosterModel(
         id: '7',
         title: 'Wings of Vigil',
-        description: 'An artistic representation of strength, freedom, and watchful awareness.',
+        description:
+            'An artistic representation of strength, freedom, and watchful awareness.',
         imageUrl: 'assets/posters/wings_of_vigil.png',
         category: 'Digital Art',
       ),
@@ -382,7 +383,10 @@ class OceanTheme {
         shadowColor: OceanColors.accent.withValues(alpha: 0.3),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
-          side: BorderSide(color: OceanColors.accent.withValues(alpha: 0.2), width: 1),
+          side: BorderSide(
+            color: OceanColors.accent.withValues(alpha: 0.2),
+            width: 1,
+          ),
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
@@ -390,14 +394,22 @@ class OceanTheme {
           backgroundColor: OceanColors.accent,
           foregroundColor: OceanColors.darkNavy,
           padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-          textStyle: GoogleFonts.roboto(fontSize: 16, fontWeight: FontWeight.w600),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          textStyle: GoogleFonts.roboto(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           foregroundColor: OceanColors.accent,
-          textStyle: GoogleFonts.roboto(fontSize: 14, fontWeight: FontWeight.w500),
+          textStyle: GoogleFonts.roboto(
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
@@ -405,20 +417,29 @@ class OceanTheme {
           foregroundColor: OceanColors.accent,
           side: BorderSide(color: OceanColors.accent, width: 2),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: OceanColors.surfaceDark,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 16,
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: OceanColors.accent.withValues(alpha: 0.3)),
+          borderSide: BorderSide(
+            color: OceanColors.accent.withValues(alpha: 0.3),
+          ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: OceanColors.accent.withValues(alpha: 0.3)),
+          borderSide: BorderSide(
+            color: OceanColors.accent.withValues(alpha: 0.3),
+          ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
@@ -464,7 +485,10 @@ class OceanTheme {
           fontWeight: FontWeight.bold,
           color: OceanColors.textPrimary,
         ),
-        contentTextStyle: GoogleFonts.roboto(fontSize: 16, color: OceanColors.textSecondary),
+        contentTextStyle: GoogleFonts.roboto(
+          fontSize: 16,
+          color: OceanColors.textSecondary,
+        ),
       ),
       chipTheme: ChipThemeData(
         backgroundColor: OceanColors.surfaceLight,
@@ -532,9 +556,18 @@ class OceanTheme {
           fontWeight: FontWeight.w500,
           color: OceanColors.textSecondary,
         ),
-        bodyLarge: GoogleFonts.roboto(fontSize: 16, color: OceanColors.textPrimary),
-        bodyMedium: GoogleFonts.roboto(fontSize: 14, color: OceanColors.textSecondary),
-        bodySmall: GoogleFonts.roboto(fontSize: 12, color: OceanColors.textMuted),
+        bodyLarge: GoogleFonts.roboto(
+          fontSize: 16,
+          color: OceanColors.textPrimary,
+        ),
+        bodyMedium: GoogleFonts.roboto(
+          fontSize: 14,
+          color: OceanColors.textSecondary,
+        ),
+        bodySmall: GoogleFonts.roboto(
+          fontSize: 12,
+          color: OceanColors.textMuted,
+        ),
         labelLarge: GoogleFonts.roboto(
           fontSize: 14,
           fontWeight: FontWeight.w600,
@@ -545,7 +578,10 @@ class OceanTheme {
           fontWeight: FontWeight.w500,
           color: OceanColors.textSecondary,
         ),
-        labelSmall: GoogleFonts.roboto(fontSize: 10, color: OceanColors.textMuted),
+        labelSmall: GoogleFonts.roboto(
+          fontSize: 10,
+          color: OceanColors.textMuted,
+        ),
       ),
     );
   }
@@ -555,7 +591,11 @@ class OceanGradients {
   static LinearGradient get backgroundGradient => LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
-    colors: [OceanColors.darkNavy, OceanColors.oceanBlue, OceanColors.deepOcean],
+    colors: [
+      OceanColors.darkNavy,
+      OceanColors.oceanBlue,
+      OceanColors.deepOcean,
+    ],
   );
 
   static LinearGradient get cardGradient => LinearGradient(
@@ -570,12 +610,11 @@ class OceanGradients {
 // ============================================================================
 
 class DataService extends ChangeNotifier {
-
   final _supabase = Supabase.instance.client;
 
   List<FriendModel> _friends = [];
   List<FriendModel> get friends => _friends;
-  
+
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
@@ -583,7 +622,7 @@ class DataService extends ChangeNotifier {
   ProfileModel get profile => _profile;
 
   DataService() {
-
+    loadProfile();
     fetchFriends();
   }
 
@@ -645,11 +684,57 @@ class DataService extends ChangeNotifier {
   Future<void> deleteFriend(String id) async {
     try {
       await _supabase.from('friends').delete().eq('id', id);
-      
+
       _friends.removeWhere((f) => f.id == id);
       notifyListeners();
     } catch (e) {
       debugPrint('Error deleting friend: $e');
+    }
+  }
+
+  Future<void> updateProfile(ProfileModel newProfile) async {
+    try {
+      // Update local profile
+      _profile = newProfile;
+
+      // Save to local storage
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('profile_data', jsonEncode(_profile.toJson()));
+
+      notifyListeners();
+    } catch (e) {
+      debugPrint('Error updating profile: $e');
+      rethrow;
+    }
+  }
+
+  Future<void> deleteProfileData() async {
+    try {
+      // Reset to default profile
+      _profile = ProfileModel.defaultProfile();
+
+      // Clear from local storage
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.remove('profile_data');
+
+      notifyListeners();
+    } catch (e) {
+      debugPrint('Error deleting profile data: $e');
+      rethrow;
+    }
+  }
+
+  Future<void> loadProfile() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final profileJson = prefs.getString('profile_data');
+
+      if (profileJson != null) {
+        _profile = ProfileModel.fromJson(jsonDecode(profileJson));
+        notifyListeners();
+      }
+    } catch (e) {
+      debugPrint('Error loading profile: $e');
     }
   }
 }
@@ -730,7 +815,8 @@ class OceanParticles extends StatefulWidget {
   State<OceanParticles> createState() => _OceanParticlesState();
 }
 
-class _OceanParticlesState extends State<OceanParticles> with TickerProviderStateMixin {
+class _OceanParticlesState extends State<OceanParticles>
+    with TickerProviderStateMixin {
   late List<Particle> particles;
   late AnimationController _controller;
 
@@ -741,7 +827,7 @@ class _OceanParticlesState extends State<OceanParticles> with TickerProviderStat
       vsync: this,
       duration: const Duration(seconds: 10),
     )..repeat();
-    
+
     particles = List.generate(
       widget.particleCount,
       (index) => Particle.random(),
@@ -814,24 +900,28 @@ class ParticlePainter extends CustomPainter {
       final y = size.height * (1 - progress * particle.speed * 3);
       final driftAmount = sin(progress * 2 * pi + particle.drift) * 30;
       final x = particle.x * size.width + driftAmount;
-      
+
       // Calculate fade for smoother transitions
       final fadeProgress = progress < 0.1
           ? progress / 0.1
           : progress > 0.9
-              ? (1 - progress) / 0.1
-              : 1.0;
+          ? (1 - progress) / 0.1
+          : 1.0;
 
       // Outer glow
       final paint = Paint()
-        ..color = OceanColors.accent.withValues(alpha: particle.opacity * fadeProgress)
+        ..color = OceanColors.accent.withValues(
+          alpha: particle.opacity * fadeProgress,
+        )
         ..maskFilter = MaskFilter.blur(BlurStyle.normal, particle.size * 0.5);
 
       canvas.drawCircle(Offset(x, y), particle.size, paint);
 
       // Inner bright spot
       final innerPaint = Paint()
-        ..color = OceanColors.accentLight.withValues(alpha: particle.opacity * fadeProgress * 0.5);
+        ..color = OceanColors.accentLight.withValues(
+          alpha: particle.opacity * fadeProgress * 0.5,
+        );
 
       canvas.drawCircle(Offset(x, y), particle.size * 0.5, innerPaint);
     }
@@ -869,7 +959,9 @@ class _OceanCardState extends State<OceanCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: widget.margin ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin:
+          widget.margin ??
+          const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: MouseRegion(
         onEnter: (_) => setState(() => _isHovered = true),
         onExit: (_) => setState(() => _isHovered = false),
@@ -881,7 +973,7 @@ class _OceanCardState extends State<OceanCard> {
             boxShadow: [
               BoxShadow(
                 color: OceanColors.accent.withValues(
-                  alpha: (_isHovered || widget.showGlow) ? 0.4 : 0.1
+                  alpha: (_isHovered || widget.showGlow) ? 0.4 : 0.1,
                 ),
                 blurRadius: _isHovered ? 25 : 10,
                 spreadRadius: _isHovered ? 4 : 0,
@@ -896,7 +988,9 @@ class _OceanCardState extends State<OceanCard> {
                 color: Colors.transparent,
                 child: InkWell(
                   onTap: widget.onTap,
-                  borderRadius: BorderRadius.circular(widget.borderRadius ?? 16),
+                  borderRadius: BorderRadius.circular(
+                    widget.borderRadius ?? 16,
+                  ),
                   splashColor: OceanColors.accent.withValues(alpha: 0.2),
                   child: Container(
                     padding: widget.padding ?? const EdgeInsets.all(20),
@@ -904,13 +998,23 @@ class _OceanCardState extends State<OceanCard> {
                       gradient: LinearGradient(
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
-                        colors: _isHovered 
-                          ? [OceanColors.surfaceLight.withValues(alpha: 0.9), OceanColors.oceanBlue]
-                          : [OceanColors.surfaceLight, OceanColors.cardBackground],
+                        colors: _isHovered
+                            ? [
+                                OceanColors.surfaceLight.withValues(alpha: 0.9),
+                                OceanColors.oceanBlue,
+                              ]
+                            : [
+                                OceanColors.surfaceLight,
+                                OceanColors.cardBackground,
+                              ],
                       ),
-                      borderRadius: BorderRadius.circular(widget.borderRadius ?? 16),
+                      borderRadius: BorderRadius.circular(
+                        widget.borderRadius ?? 16,
+                      ),
                       border: Border.all(
-                        color: _isHovered ? OceanColors.accent : OceanColors.accent.withValues(alpha: 0.2), 
+                        color: _isHovered
+                            ? OceanColors.accent
+                            : OceanColors.accent.withValues(alpha: 0.2),
                         width: _isHovered ? 1.5 : 1,
                       ),
                     ),
@@ -971,7 +1075,9 @@ class OceanChip extends StatelessWidget {
             Text(
               label,
               style: TextStyle(
-                color: selected ? OceanColors.darkNavy : OceanColors.textPrimary,
+                color: selected
+                    ? OceanColors.darkNavy
+                    : OceanColors.textPrimary,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -1002,7 +1108,8 @@ class OceanButton extends StatefulWidget {
   State<OceanButton> createState() => _OceanButtonState();
 }
 
-class _OceanButtonState extends State<OceanButton> with TickerProviderStateMixin {
+class _OceanButtonState extends State<OceanButton>
+    with TickerProviderStateMixin {
   late AnimationController _glowController;
   late AnimationController _hoverController;
   late AnimationController _pressController;
@@ -1017,16 +1124,16 @@ class _OceanButtonState extends State<OceanButton> with TickerProviderStateMixin
       vsync: this,
       duration: const Duration(seconds: 2),
     )..repeat(reverse: true);
-    
+
     _glowAnimation = Tween<double>(begin: 0.3, end: 0.8).animate(
       CurvedAnimation(parent: _glowController, curve: Curves.easeInOut),
     );
-    
+
     _hoverController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 400),
     );
-    
+
     _pressController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 200),
@@ -1070,7 +1177,9 @@ class _OceanButtonState extends State<OceanButton> with TickerProviderStateMixin
     return MouseRegion(
       onEnter: (_) => _onHoverEnter(),
       onExit: (_) => _onHoverExit(),
-      cursor: widget.isLoading ? SystemMouseCursors.basic : SystemMouseCursors.click,
+      cursor: widget.isLoading
+          ? SystemMouseCursors.basic
+          : SystemMouseCursors.click,
       child: GestureDetector(
         onTapDown: (_) => setState(() => _isPressed = true),
         onTapUp: (_) => setState(() => _isPressed = false),
@@ -1082,7 +1191,9 @@ class _OceanButtonState extends State<OceanButton> with TickerProviderStateMixin
             onPressed: widget.isLoading ? null : _onPressed,
             style: OutlinedButton.styleFrom(
               side: BorderSide(
-                color: _isHovered ? OceanColors.accentLight : OceanColors.accent,
+                color: _isHovered
+                    ? OceanColors.accentLight
+                    : OceanColors.accent,
                 width: _isHovered ? 2.5 : 2,
               ),
             ),
@@ -1097,18 +1208,29 @@ class _OceanButtonState extends State<OceanButton> with TickerProviderStateMixin
     return MouseRegion(
       onEnter: (_) => _onHoverEnter(),
       onExit: (_) => _onHoverExit(),
-      cursor: widget.isLoading ? SystemMouseCursors.basic : SystemMouseCursors.click,
+      cursor: widget.isLoading
+          ? SystemMouseCursors.basic
+          : SystemMouseCursors.click,
       child: GestureDetector(
         onTapDown: (_) => setState(() => _isPressed = true),
         onTapUp: (_) => setState(() => _isPressed = false),
         onTapCancel: () => setState(() => _isPressed = false),
         child: AnimatedBuilder(
-          animation: Listenable.merge([_glowAnimation, _hoverController, _pressController]),
+          animation: Listenable.merge([
+            _glowAnimation,
+            _hoverController,
+            _pressController,
+          ]),
           builder: (context, child) {
-            final scale = 1.0 + (_hoverController.value * 0.08) + (_pressController.value * 0.03);
-            final glowIntensity = _isHovered ? _glowAnimation.value * 1.3 : _glowAnimation.value;
+            final scale =
+                1.0 +
+                (_hoverController.value * 0.08) +
+                (_pressController.value * 0.03);
+            final glowIntensity = _isHovered
+                ? _glowAnimation.value * 1.3
+                : _glowAnimation.value;
             final blurAmount = 15 + (_hoverController.value * 15);
-            
+
             return Transform.scale(
               scale: _isPressed ? 0.95 : scale,
               child: Container(
@@ -1116,13 +1238,17 @@ class _OceanButtonState extends State<OceanButton> with TickerProviderStateMixin
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
                     BoxShadow(
-                      color: OceanColors.accent.withValues(alpha: glowIntensity * 0.6),
+                      color: OceanColors.accent.withValues(
+                        alpha: glowIntensity * 0.6,
+                      ),
                       blurRadius: blurAmount,
                       spreadRadius: 2 + (_hoverController.value * 3),
                     ),
                     if (_isHovered)
                       BoxShadow(
-                        color: OceanColors.accentLight.withValues(alpha: glowIntensity * 0.3),
+                        color: OceanColors.accentLight.withValues(
+                          alpha: glowIntensity * 0.3,
+                        ),
                         blurRadius: blurAmount * 0.5,
                         spreadRadius: 1,
                       ),
@@ -1183,7 +1309,8 @@ class CircleNavButton extends StatefulWidget {
   State<CircleNavButton> createState() => _CircleNavButtonState();
 }
 
-class _CircleNavButtonState extends State<CircleNavButton> with SingleTickerProviderStateMixin {
+class _CircleNavButtonState extends State<CircleNavButton>
+    with SingleTickerProviderStateMixin {
   bool _isHovered = false;
   late AnimationController _glowController;
   late Animation<double> _glowAnimation;
@@ -1195,7 +1322,7 @@ class _CircleNavButtonState extends State<CircleNavButton> with SingleTickerProv
       vsync: this,
       duration: const Duration(seconds: 2),
     )..repeat(reverse: true);
-    
+
     _glowAnimation = Tween<double>(begin: 0.3, end: 0.8).animate(
       CurvedAnimation(parent: _glowController, curve: Curves.easeInOut),
     );
@@ -1213,7 +1340,7 @@ class _CircleNavButtonState extends State<CircleNavButton> with SingleTickerProv
     final baseSize = isWeb ? 180.0 : 140.0;
     final hoverSize = isWeb ? 200.0 : 150.0;
     final baseIconSize = isWeb ? 42.0 : 32.0;
-    
+
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
@@ -1232,35 +1359,37 @@ class _CircleNavButtonState extends State<CircleNavButton> with SingleTickerProv
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    _isHovered 
-                      ? OceanColors.accent.withValues(alpha: 0.6) 
-                      : OceanColors.accent.withValues(alpha: 0.3),
+                    _isHovered
+                        ? OceanColors.accent.withValues(alpha: 0.6)
+                        : OceanColors.accent.withValues(alpha: 0.3),
                     OceanColors.oceanBlue.withValues(alpha: 0.8),
                   ],
                 ),
                 border: Border.all(
-                  color: _isHovered 
-                    ? OceanColors.accentLight 
-                    : OceanColors.accent.withValues(alpha: 0.5), 
+                  color: _isHovered
+                      ? OceanColors.accentLight
+                      : OceanColors.accent.withValues(alpha: 0.5),
                   width: _isHovered ? 3 : 2,
                 ),
                 boxShadow: [
                   BoxShadow(
                     color: OceanColors.accent.withValues(
-                      alpha: _isHovered 
-                        ? (_glowAnimation.value * 0.7) 
-                        : (_glowAnimation.value * 0.3),
-                    ), 
-                    blurRadius: _isHovered 
-                      ? (30 + (_glowAnimation.value * 20)) 
-                      : (20 + (_glowAnimation.value * 10)), 
-                    spreadRadius: _isHovered 
-                      ? (5 + (_glowAnimation.value * 3)) 
-                      : (2 + (_glowAnimation.value * 2)),
+                      alpha: _isHovered
+                          ? (_glowAnimation.value * 0.7)
+                          : (_glowAnimation.value * 0.3),
+                    ),
+                    blurRadius: _isHovered
+                        ? (30 + (_glowAnimation.value * 20))
+                        : (20 + (_glowAnimation.value * 10)),
+                    spreadRadius: _isHovered
+                        ? (5 + (_glowAnimation.value * 3))
+                        : (2 + (_glowAnimation.value * 2)),
                   ),
                   if (_isHovered)
                     BoxShadow(
-                      color: OceanColors.accentLight.withValues(alpha: _glowAnimation.value * 0.4),
+                      color: OceanColors.accentLight.withValues(
+                        alpha: _glowAnimation.value * 0.4,
+                      ),
                       blurRadius: 20,
                       spreadRadius: 2,
                     ),
@@ -1296,7 +1425,9 @@ class _CircleNavButtonState extends State<CircleNavButton> with SingleTickerProv
                     duration: const Duration(milliseconds: 300),
                     opacity: _isHovered ? 1.0 : 0.7,
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: isWeb ? 16 : 12),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: isWeb ? 16 : 12,
+                      ),
                       child: Text(
                         widget.description,
                         style: TextStyle(
@@ -1339,7 +1470,7 @@ class OceanDialogs {
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   color: (isDangerous ? OceanColors.error : OceanColors.accent)
-                    .withValues(alpha: 0.2),
+                      .withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Icon(
@@ -1360,9 +1491,9 @@ class OceanDialogs {
           ),
           ElevatedButton(
             onPressed: () => Navigator.pop(context, true),
-            style: isDangerous 
-              ? ElevatedButton.styleFrom(backgroundColor: OceanColors.error) 
-              : null,
+            style: isDangerous
+                ? ElevatedButton.styleFrom(backgroundColor: OceanColors.error)
+                : null,
             child: Text(confirmText),
           ),
         ],
@@ -1446,7 +1577,8 @@ Future<void> main() async {
 
   await Supabase.initialize(
     url: 'https://esumhbmbcvwoibbowtzp.supabase.co',
-    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzdW1oYm1iY3Z3b2liYm93dHpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2MzIwNzEsImV4cCI6MjA4NjIwODA3MX0.Bv5AW17civ5QAuV3AoBG7R-7iXvEVxMMNDzUp0YeiCk',
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzdW1oYm1iY3Z3b2liYm93dHpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2MzIwNzEsImV4cCI6MjA4NjIwODA3MX0.Bv5AW17civ5QAuV3AoBG7R-7iXvEVxMMNDzUp0YeiCk',
   );
 
   SystemChrome.setSystemUIOverlayStyle(
@@ -1500,7 +1632,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _fadeAnimation;
   late Animation<Offset> _slideAnimation;
@@ -1520,15 +1653,13 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       ),
     );
 
-    _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, 0.3),
-      end: Offset.zero,
-    ).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: const Interval(0.2, 0.7, curve: Curves.easeOutCubic),
-      ),
-    );
+    _slideAnimation =
+        Tween<Offset>(begin: const Offset(0, 0.3), end: Offset.zero).animate(
+          CurvedAnimation(
+            parent: _controller,
+            curve: const Interval(0.2, 0.7, curve: Curves.easeOutCubic),
+          ),
+        );
 
     _controller.forward();
   }
@@ -1545,7 +1676,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     final double screenWidth = MediaQuery.of(context).size.width;
     final bool isWeb = screenWidth > 600;
     // Scale everything up by 1.25x on larger screens
-    final double scale = isWeb ? 1.25 : 1.0; 
+    final double scale = isWeb ? 1.25 : 1.0;
 
     return Scaffold(
       body: OceanBackground(
@@ -1561,7 +1692,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       SizedBox(height: 40 * scale),
                       _buildTitleSection(scale), // Pass scale to title
                       SizedBox(height: 60 * scale),
-                      _buildNavigationCircles(scale, isWeb), // Pass scale to nav
+                      _buildNavigationCircles(
+                        scale,
+                        isWeb,
+                      ), // Pass scale to nav
                       SizedBox(height: 40 * scale),
                     ],
                   ),
@@ -1579,7 +1713,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       padding: EdgeInsets.all(20 * scale),
       child: Row(
         // Changed to end alignment since we removed the left home button
-        mainAxisAlignment: MainAxisAlignment.end, 
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Row(
             children: [
@@ -1601,9 +1735,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         decoration: BoxDecoration(
           color: OceanColors.surfaceLight.withValues(alpha: 0.5),
           borderRadius: BorderRadius.circular(12 * scale),
-          border: Border.all(
-            color: OceanColors.accent.withValues(alpha: 0.3),
-          ),
+          border: Border.all(color: OceanColors.accent.withValues(alpha: 0.3)),
         ),
         child: Icon(icon, color: OceanColors.accent, size: 20 * scale),
       ),
@@ -1620,7 +1752,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             Text(
               'S.CHENG',
               style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                fontSize: (Theme.of(context).textTheme.displayLarge?.fontSize ?? 57) * scale,
+                fontSize:
+                    (Theme.of(context).textTheme.displayLarge?.fontSize ?? 57) *
+                    scale,
                 letterSpacing: 8 * scale,
                 fontWeight: FontWeight.w800,
                 shadows: [
@@ -1643,7 +1777,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               child: Text(
                 'Sheila Nicole Cheng',
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  fontSize: (Theme.of(context).textTheme.headlineMedium?.fontSize ?? 28) * scale,
+                  fontSize:
+                      (Theme.of(context).textTheme.headlineMedium?.fontSize ??
+                          28) *
+                      scale,
                   color: Colors.white,
                   letterSpacing: 2 * scale,
                 ),
@@ -1653,7 +1790,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             Text(
               'Creative Developer & Designer',
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                fontSize: (Theme.of(context).textTheme.bodyLarge?.fontSize ?? 16) * scale,
+                fontSize:
+                    (Theme.of(context).textTheme.bodyLarge?.fontSize ?? 16) *
+                    scale,
                 color: OceanColors.textSecondary,
               ),
             ),
@@ -1720,7 +1859,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                     scale: scale,
                     child: CircleNavButton(
                       title: 'Contacts',
-                      description: 'Reach out & let\'s create something amazing',
+                      description:
+                          'Reach out & let\'s create something amazing',
                       icon: Icons.contact_mail,
                       onTap: () => _navigateTo(const ContactsScreen()),
                     ),
@@ -1742,10 +1882,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
     return ScaleTransition(
       scale: animation,
-      child: FadeTransition(
-        opacity: animation,
-        child: child,
-      ),
+      child: FadeTransition(opacity: animation, child: child),
     );
   }
 
@@ -1758,15 +1895,16 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           return FadeTransition(
             opacity: animation,
             child: SlideTransition(
-              position: Tween<Offset>(
-                begin: const Offset(0.1, 0),
-                end: Offset.zero,
-              ).animate(
-                CurvedAnimation(
-                  parent: animation,
-                  curve: Curves.easeOutCubic,
-                ),
-              ),
+              position:
+                  Tween<Offset>(
+                    begin: const Offset(0.1, 0),
+                    end: Offset.zero,
+                  ).animate(
+                    CurvedAnimation(
+                      parent: animation,
+                      curve: Curves.easeOutCubic,
+                    ),
+                  ),
               child: child,
             ),
           );
@@ -1780,7 +1918,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
-@override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: OceanBackground(
@@ -1823,7 +1961,10 @@ class ProfileScreen extends StatelessWidget {
                                       const SizedBox(height: 24),
                                       _buildSkillsSection(context, profile),
                                       const SizedBox(height: 24),
-                                      _buildHobbiesInterestsSection(context, profile),
+                                      _buildHobbiesInterestsSection(
+                                        context,
+                                        profile,
+                                      ),
                                       const SizedBox(height: 40),
                                     ],
                                   ),
@@ -1861,6 +2002,7 @@ class ProfileScreen extends StatelessWidget {
       ),
     );
   }
+
   Widget _buildAppBar(BuildContext context) {
     return SliverAppBar(
       floating: true,
@@ -1886,7 +2028,10 @@ class ProfileScreen extends StatelessWidget {
             ),
             child: Icon(Icons.settings, color: OceanColors.accent),
           ),
-          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const SettingsScreen())),
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const SettingsScreen()),
+          ),
         ),
         const SizedBox(width: 8),
       ],
@@ -1902,27 +2047,53 @@ class ProfileScreen extends StatelessWidget {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             gradient: RadialGradient(
-              colors: [OceanColors.accent.withValues(alpha: 0.3), OceanColors.oceanBlue],
+              colors: [
+                OceanColors.accent.withValues(alpha: 0.3),
+                OceanColors.oceanBlue,
+              ],
             ),
             border: Border.all(color: OceanColors.accent, width: 3),
-            boxShadow: [BoxShadow(color: OceanColors.accent.withValues(alpha: 0.4), blurRadius: 30, spreadRadius: 5)],
+            boxShadow: [
+              BoxShadow(
+                color: OceanColors.accent.withValues(alpha: 0.4),
+                blurRadius: 30,
+                spreadRadius: 5,
+              ),
+            ],
           ),
           child: ClipOval(
             child: profile.profileImagePath != null
                 ? (profile.profileImagePath!.startsWith('assets/')
-                    ? Image.asset(profile.profileImagePath!, fit: BoxFit.cover)
-                    : Image.file(File(profile.profileImagePath!), fit: BoxFit.cover))
+                      ? Image.asset(
+                          profile.profileImagePath!,
+                          fit: BoxFit.cover,
+                        )
+                      : Image.file(
+                          File(profile.profileImagePath!),
+                          fit: BoxFit.cover,
+                        ))
                 : Icon(Icons.person, size: 70, color: OceanColors.accent),
           ),
         ),
         const SizedBox(height: 20),
-        Text(profile.name, style: Theme.of(context).textTheme.displaySmall?.copyWith(
-          shadows: [Shadow(color: OceanColors.accent.withValues(alpha: 0.5), blurRadius: 10)],
-        ), textAlign: TextAlign.center),
+        Text(
+          profile.name,
+          style: Theme.of(context).textTheme.displaySmall?.copyWith(
+            shadows: [
+              Shadow(
+                color: OceanColors.accent.withValues(alpha: 0.5),
+                blurRadius: 10,
+              ),
+            ],
+          ),
+          textAlign: TextAlign.center,
+        ),
         const SizedBox(height: 8),
         Text(
           'Creative Developer & Designer',
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(color: OceanColors.accent),
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(color: OceanColors.accent),
         ),
       ],
     );
@@ -1937,11 +2108,17 @@ class ProfileScreen extends StatelessWidget {
             children: [
               Icon(Icons.info_outline, color: OceanColors.accent),
               const SizedBox(width: 12),
-              Text('About Me', style: Theme.of(context).textTheme.headlineSmall),
+              Text(
+                'About Me',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
             ],
           ),
           const SizedBox(height: 16),
-          Text(profile.bio, style: Theme.of(context).textTheme.bodyLarge?.copyWith(height: 1.6)),
+          Text(
+            profile.bio,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(height: 1.6),
+          ),
         ],
       ),
     );
@@ -1956,7 +2133,10 @@ class ProfileScreen extends StatelessWidget {
             children: [
               Icon(Icons.contact_mail, color: OceanColors.accent),
               const SizedBox(width: 12),
-              Text('Contact Information', style: Theme.of(context).textTheme.headlineSmall),
+              Text(
+                'Contact Information',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
             ],
           ),
           const SizedBox(height: 16),
@@ -1982,7 +2162,12 @@ class ProfileScreen extends StatelessWidget {
           child: Icon(icon, size: 18, color: OceanColors.accent),
         ),
         const SizedBox(width: 12),
-        Expanded(child: Text(text, style: const TextStyle(color: OceanColors.textSecondary))),
+        Expanded(
+          child: Text(
+            text,
+            style: const TextStyle(color: OceanColors.textSecondary),
+          ),
+        ),
       ],
     );
   }
@@ -2003,14 +2188,19 @@ class ProfileScreen extends StatelessWidget {
           Wrap(
             spacing: 8,
             runSpacing: 8,
-            children: profile.skills.map((skill) => OceanChip(label: skill)).toList(),
+            children: profile.skills
+                .map((skill) => OceanChip(label: skill))
+                .toList(),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildHobbiesInterestsSection(BuildContext context, ProfileModel profile) {
+  Widget _buildHobbiesInterestsSection(
+    BuildContext context,
+    ProfileModel profile,
+  ) {
     return Column(
       children: [
         OceanCard(
@@ -2021,14 +2211,22 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   Icon(Icons.favorite, color: OceanColors.accent),
                   const SizedBox(width: 12),
-                  Text('Hobbies', style: Theme.of(context).textTheme.headlineSmall),
+                  Text(
+                    'Hobbies',
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
                 ],
               ),
               const SizedBox(height: 16),
               Wrap(
                 spacing: 8,
                 runSpacing: 8,
-                children: profile.hobbies.map((hobby) => OceanChip(label: hobby, icon: Icons.favorite_border)).toList(),
+                children: profile.hobbies
+                    .map(
+                      (hobby) =>
+                          OceanChip(label: hobby, icon: Icons.favorite_border),
+                    )
+                    .toList(),
               ),
             ],
           ),
@@ -2042,14 +2240,22 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   Icon(Icons.star, color: OceanColors.accent),
                   const SizedBox(width: 12),
-                  Text('Interests', style: Theme.of(context).textTheme.headlineSmall),
+                  Text(
+                    'Interests',
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
                 ],
               ),
               const SizedBox(height: 16),
               Wrap(
                 spacing: 8,
                 runSpacing: 8,
-                children: profile.interests.map((interest) => OceanChip(label: interest, icon: Icons.star_border)).toList(),
+                children: profile.interests
+                    .map(
+                      (interest) =>
+                          OceanChip(label: interest, icon: Icons.star_border),
+                    )
+                    .toList(),
               ),
             ],
           ),
@@ -2066,7 +2272,10 @@ class ProfileScreen extends StatelessWidget {
           child: OceanButton(
             label: 'Edit Profile',
             icon: Icons.edit,
-            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const EditProfileScreen())),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const EditProfileScreen()),
+            ),
           ),
         ),
         const SizedBox(height: 16),
@@ -2076,7 +2285,10 @@ class ProfileScreen extends StatelessWidget {
             label: 'Friends List',
             icon: Icons.people,
             isOutlined: true,
-            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const FriendsScreen())),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const FriendsScreen()),
+            ),
           ),
         ),
       ],
@@ -2114,8 +2326,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     _phoneController = TextEditingController(text: profile.phone);
     _linkedInController = TextEditingController(text: profile.linkedIn);
     _skillsController = TextEditingController(text: profile.skills.join(', '));
-    _hobbiesController = TextEditingController(text: profile.hobbies.join(', '));
-    _interestsController = TextEditingController(text: profile.interests.join(', '));
+    _hobbiesController = TextEditingController(
+      text: profile.hobbies.join(', '),
+    );
+    _interestsController = TextEditingController(
+      text: profile.interests.join(', '),
+    );
     _profileImagePath = profile.profileImagePath;
   }
 
@@ -2202,7 +2418,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   }
 
   Widget _buildSectionTitle(String title) {
-    return Text(title, style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: OceanColors.accent));
+    return Text(
+      title,
+      style: Theme.of(
+        context,
+      ).textTheme.headlineMedium?.copyWith(color: OceanColors.accent),
+    );
   }
 
   Widget _buildProfilePictureSection() {
@@ -2217,21 +2438,31 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
-                  colors: [OceanColors.accent.withValues(alpha: 0.3), OceanColors.oceanBlue],
+                  colors: [
+                    OceanColors.accent.withValues(alpha: 0.3),
+                    OceanColors.oceanBlue,
+                  ],
                 ),
                 border: Border.all(color: OceanColors.accent, width: 3),
               ),
               child: ClipOval(
                 child: _profileImagePath != null
                     ? (_profileImagePath!.startsWith('assets/')
-                        ? Image.asset(_profileImagePath!, fit: BoxFit.cover)
-                        : Image.file(File(_profileImagePath!), fit: BoxFit.cover))
+                          ? Image.asset(_profileImagePath!, fit: BoxFit.cover)
+                          : Image.file(
+                              File(_profileImagePath!),
+                              fit: BoxFit.cover,
+                            ))
                     : Icon(Icons.person, size: 60, color: OceanColors.accent),
               ),
             ),
           ),
           const SizedBox(height: 12),
-          TextButton.icon(onPressed: _pickImage, icon: const Icon(Icons.camera_alt), label: const Text('Change Photo')),
+          TextButton.icon(
+            onPressed: _pickImage,
+            icon: const Icon(Icons.camera_alt),
+            label: const Text('Change Photo'),
+          ),
         ],
       ),
     );
@@ -2239,7 +2470,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
   Widget _buildNameField() => TextFormField(
     controller: _nameController,
-    decoration: const InputDecoration(labelText: 'Full Name', hintText: 'Enter your full name', prefixIcon: Icon(Icons.person)),
+    decoration: const InputDecoration(
+      labelText: 'Full Name',
+      hintText: 'Enter your full name',
+      prefixIcon: Icon(Icons.person),
+    ),
     validator: (value) {
       if (value == null || value.trim().isEmpty) return 'Name is required';
       if (value.trim().length < 2) return 'Name must be at least 2 characters';
@@ -2266,12 +2501,17 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
   Widget _buildEmailField() => TextFormField(
     controller: _emailController,
-    decoration: const InputDecoration(labelText: 'Email', hintText: 'Enter your email address', prefixIcon: Icon(Icons.email)),
+    decoration: const InputDecoration(
+      labelText: 'Email',
+      hintText: 'Enter your email address',
+      prefixIcon: Icon(Icons.email),
+    ),
     keyboardType: TextInputType.emailAddress,
     validator: (value) {
       if (value == null || value.trim().isEmpty) return 'Email is required';
       final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
-      if (!emailRegex.hasMatch(value.trim())) return 'Please enter a valid email address';
+      if (!emailRegex.hasMatch(value.trim()))
+        return 'Please enter a valid email address';
       return null;
     },
     textInputAction: TextInputAction.next,
@@ -2279,10 +2519,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
   Widget _buildPhoneField() => TextFormField(
     controller: _phoneController,
-    decoration: const InputDecoration(labelText: 'Phone', hintText: 'Enter your phone number', prefixIcon: Icon(Icons.phone)),
+    decoration: const InputDecoration(
+      labelText: 'Phone',
+      hintText: 'Enter your phone number',
+      prefixIcon: Icon(Icons.phone),
+    ),
     keyboardType: TextInputType.phone,
     validator: (value) {
-      if (value == null || value.trim().isEmpty) return 'Phone number is required';
+      if (value == null || value.trim().isEmpty)
+        return 'Phone number is required';
       return null;
     },
     textInputAction: TextInputAction.next,
@@ -2308,7 +2553,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       helperText: 'e.g., Flutter, Web Development, UI Design',
     ),
     validator: (value) {
-      if (value == null || value.trim().isEmpty) return 'Please enter at least one skill';
+      if (value == null || value.trim().isEmpty)
+        return 'Please enter at least one skill';
       return null;
     },
   );
@@ -2420,7 +2666,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     final confirmed = await OceanDialogs.showConfirmation(
       context: context,
       title: 'Reset Profile',
-      message: 'Are you sure you want to reset your profile to default values? This action cannot be undone.',
+      message:
+          'Are you sure you want to reset your profile to default values? This action cannot be undone.',
       icon: Icons.refresh,
       confirmText: 'Reset',
       isDangerous: true,
@@ -2446,7 +2693,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     final confirmed = await OceanDialogs.showConfirmation(
       context: context,
       title: 'Discard Changes?',
-      message: 'Are you sure you want to go back? Any unsaved changes will be lost.',
+      message:
+          'Are you sure you want to go back? Any unsaved changes will be lost.',
       icon: Icons.warning,
       confirmText: 'Discard',
       cancelText: 'Stay',
@@ -2456,7 +2704,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   }
 
   List<String> _parseCommaSeparated(String text) {
-    return text.split(',').map((s) => s.trim()).where((s) => s.isNotEmpty).toList();
+    return text
+        .split(',')
+        .map((s) => s.trim())
+        .where((s) => s.isNotEmpty)
+        .toList();
   }
 }
 
@@ -2467,35 +2719,50 @@ class ProjectsScreen extends StatefulWidget {
   State<ProjectsScreen> createState() => _ProjectsScreenState();
 }
 
-class _ProjectsScreenState extends State<ProjectsScreen> with TickerProviderStateMixin {
+class _ProjectsScreenState extends State<ProjectsScreen>
+    with TickerProviderStateMixin {
   late PageController _pageController;
   Timer? _carouselTimer;
-  int _currentPage = 10000; 
-  
+  int _currentPage = 10000;
+
   // Your 4 projects
-  final List<ProjectModel> _projects = ProjectModel.sampleProjects().take(4).toList();
+  final List<ProjectModel> _projects = ProjectModel.sampleProjects()
+      .take(4)
+      .toList();
 
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(viewportFraction: 0.8, initialPage: _currentPage);
+    _pageController = PageController(
+      viewportFraction: 0.8,
+      initialPage: _currentPage,
+    );
     _startAutoPlay();
   }
 
   void _startAutoPlay() {
     _carouselTimer?.cancel();
-    _carouselTimer = Timer.periodic(const Duration(seconds: 4), (timer) => _moveNext());
+    _carouselTimer = Timer.periodic(
+      const Duration(seconds: 4),
+      (timer) => _moveNext(),
+    );
   }
 
   void _moveNext() {
     if (_pageController.hasClients) {
-      _pageController.nextPage(duration: const Duration(milliseconds: 800), curve: Curves.easeInOutCubic);
+      _pageController.nextPage(
+        duration: const Duration(milliseconds: 800),
+        curve: Curves.easeInOutCubic,
+      );
     }
   }
 
   void _moveBack() {
     if (_pageController.hasClients) {
-      _pageController.previousPage(duration: const Duration(milliseconds: 800), curve: Curves.easeInOutCubic);
+      _pageController.previousPage(
+        duration: const Duration(milliseconds: 800),
+        curve: Curves.easeInOutCubic,
+      );
     }
   }
 
@@ -2512,12 +2779,21 @@ class _ProjectsScreenState extends State<ProjectsScreen> with TickerProviderStat
           decoration: BoxDecoration(
             color: OceanColors.darkNavy.withValues(alpha: 0.9),
             borderRadius: const BorderRadius.vertical(top: Radius.circular(40)),
-            border: Border.all(color: OceanColors.accent.withValues(alpha: 0.2)),
+            border: Border.all(
+              color: OceanColors.accent.withValues(alpha: 0.2),
+            ),
           ),
           child: Column(
             children: [
               const SizedBox(height: 15),
-              Container(width: 50, height: 5, decoration: BoxDecoration(color: Colors.white24, borderRadius: BorderRadius.circular(10))),
+              Container(
+                width: 50,
+                height: 5,
+                decoration: BoxDecoration(
+                  color: Colors.white24,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
               Expanded(
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.all(30),
@@ -2528,26 +2804,73 @@ class _ProjectsScreenState extends State<ProjectsScreen> with TickerProviderStat
                         tag: 'title_${project.title}',
                         child: Material(
                           color: Colors.transparent,
-                          child: Text(project.title, style: Theme.of(context).textTheme.displaySmall),
+                          child: Text(
+                            project.title,
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
                         ),
                       ),
                       const SizedBox(height: 10),
-                      Text(project.category, style: TextStyle(color: OceanColors.accent, fontWeight: FontWeight.bold)),
+                      Text(
+                        project.category,
+                        style: TextStyle(
+                          color: OceanColors.accent,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       const SizedBox(height: 30),
-                      const Text("PROJECT DESCRIPTION", style: TextStyle(color: Colors.white54, fontWeight: FontWeight.bold, fontSize: 12, letterSpacing: 1.2)),
+                      const Text(
+                        "PROJECT DESCRIPTION",
+                        style: TextStyle(
+                          color: Colors.white54,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12,
+                          letterSpacing: 1.2,
+                        ),
+                      ),
                       const SizedBox(height: 12),
-                      Text(project.description, style: const TextStyle(color: OceanColors.textSecondary, fontSize: 16, height: 1.6)),
+                      Text(
+                        project.description,
+                        style: const TextStyle(
+                          color: OceanColors.textSecondary,
+                          fontSize: 16,
+                          height: 1.6,
+                        ),
+                      ),
                       const SizedBox(height: 30),
-                      const Text("BUILT WITH", style: TextStyle(color: Colors.white54, fontWeight: FontWeight.bold, fontSize: 12, letterSpacing: 1.2)),
+                      const Text(
+                        "BUILT WITH",
+                        style: TextStyle(
+                          color: Colors.white54,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12,
+                          letterSpacing: 1.2,
+                        ),
+                      ),
                       const SizedBox(height: 15),
                       Wrap(
                         spacing: 10,
                         runSpacing: 10,
-                        children: project.technologies.map((tech) => Chip(
-                          label: Text(tech, style: const TextStyle(color: Colors.white, fontSize: 12)),
-                          backgroundColor: OceanColors.surfaceLight.withValues(alpha: 0.3),
-                          side: BorderSide(color: OceanColors.accent.withValues(alpha: 0.2)),
-                        )).toList(),
+                        children: project.technologies
+                            .map(
+                              (tech) => Chip(
+                                label: Text(
+                                  tech,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                backgroundColor: OceanColors.surfaceLight
+                                    .withValues(alpha: 0.3),
+                                side: BorderSide(
+                                  color: OceanColors.accent.withValues(
+                                    alpha: 0.2,
+                                  ),
+                                ),
+                              ),
+                            )
+                            .toList(),
                       ),
                     ],
                   ),
@@ -2582,9 +2905,22 @@ class _ProjectsScreenState extends State<ProjectsScreen> with TickerProviderStat
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Featured Work', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white)),
+                      Text(
+                        'Featured Work',
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
                       SizedBox(height: 8),
-                      Text('A selection of my recent projects', style: TextStyle(color: OceanColors.textSecondary, fontSize: 16)),
+                      Text(
+                        'A selection of my recent projects',
+                        style: TextStyle(
+                          color: OceanColors.textSecondary,
+                          fontSize: 16,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -2606,21 +2942,40 @@ class _ProjectsScreenState extends State<ProjectsScreen> with TickerProviderStat
                               double value = 1.0;
                               if (_pageController.position.haveDimensions) {
                                 value = (_pageController.page! - index);
-                                value = (1 - (value.abs() * 0.15)).clamp(0.8, 1.0);
+                                value = (1 - (value.abs() * 0.15)).clamp(
+                                  0.8,
+                                  1.0,
+                                );
                               }
-                              return Center(child: Transform.scale(scale: value, child: _buildProjectCard(project)));
+                              return Center(
+                                child: Transform.scale(
+                                  scale: value,
+                                  child: _buildProjectCard(project),
+                                ),
+                              );
                             },
                           );
                         },
                       ),
-                      Positioned(left: 10, child: _navArrow(Icons.chevron_left, _moveBack)),
-                      Positioned(right: 10, child: _navArrow(Icons.chevron_right, _moveNext)),
+                      Positioned(
+                        left: 10,
+                        child: _navArrow(Icons.chevron_left, _moveBack),
+                      ),
+                      Positioned(
+                        right: 10,
+                        child: _navArrow(Icons.chevron_right, _moveNext),
+                      ),
                     ],
                   ),
                 ),
-                
+
                 const SizedBox(height: 80),
-                const Center(child: Text(" ", style: TextStyle(color: OceanColors.textMuted))),
+                const Center(
+                  child: Text(
+                    " ",
+                    style: TextStyle(color: OceanColors.textMuted),
+                  ),
+                ),
                 const SizedBox(height: 100),
               ],
             ),
@@ -2678,7 +3033,11 @@ class _ProjectsScreenState extends State<ProjectsScreen> with TickerProviderStat
                           fit: BoxFit.contain,
                         ),
                       )
-                    : Icon(Icons.folder_open_rounded, color: projectColor, size: 50),
+                    : Icon(
+                        Icons.folder_open_rounded,
+                        color: projectColor,
+                        size: 50,
+                      ),
               ),
             ),
             const SizedBox(height: 20),
@@ -2686,13 +3045,32 @@ class _ProjectsScreenState extends State<ProjectsScreen> with TickerProviderStat
               tag: 'title_${project.title}',
               child: Material(
                 color: Colors.transparent,
-                child: Text(project.title, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white)),
+                child: Text(
+                  project.title,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
             const SizedBox(height: 8),
-            Text(project.description, maxLines: 2, overflow: TextOverflow.ellipsis, style: const TextStyle(color: OceanColors.textSecondary)),
+            Text(
+              project.description,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(color: OceanColors.textSecondary),
+            ),
             const SizedBox(height: 15),
-            Text("Tap for details +", style: TextStyle(color: OceanColors.accent, fontWeight: FontWeight.bold, fontSize: 13)),
+            Text(
+              "Tap for details +",
+              style: TextStyle(
+                color: OceanColors.accent,
+                fontWeight: FontWeight.bold,
+                fontSize: 13,
+              ),
+            ),
           ],
         ),
       ),
@@ -2701,7 +3079,10 @@ class _ProjectsScreenState extends State<ProjectsScreen> with TickerProviderStat
 
   Widget _navArrow(IconData icon, VoidCallback action) {
     return Container(
-      decoration: BoxDecoration(color: OceanColors.oceanBlue.withValues(alpha: 0.7), shape: BoxShape.circle),
+      decoration: BoxDecoration(
+        color: OceanColors.oceanBlue.withValues(alpha: 0.7),
+        shape: BoxShape.circle,
+      ),
       child: IconButton(
         icon: Icon(icon, color: OceanColors.accent, size: 28),
         onPressed: () {
@@ -2730,7 +3111,8 @@ class PostersScreen extends StatefulWidget {
   State<PostersScreen> createState() => _PostersScreenState();
 }
 
-class _PostersScreenState extends State<PostersScreen> with TickerProviderStateMixin {
+class _PostersScreenState extends State<PostersScreen>
+    with TickerProviderStateMixin {
   String _selectedCategory = 'All';
   final List<String> _categories = ['All', 'Digital Art'];
   late AnimationController _fadeInController;
@@ -2738,7 +3120,10 @@ class _PostersScreenState extends State<PostersScreen> with TickerProviderStateM
   @override
   void initState() {
     super.initState();
-    _fadeInController = AnimationController(vsync: this, duration: const Duration(milliseconds: 700));
+    _fadeInController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 700),
+    );
     _fadeInController.forward();
   }
 
@@ -2778,16 +3163,26 @@ class _PostersScreenState extends State<PostersScreen> with TickerProviderStateM
                     child: poster.imageUrl != null
                         ? ClipRRect(
                             borderRadius: BorderRadius.circular(16),
-                            child: Image.asset(poster.imageUrl!, fit: BoxFit.contain),
+                            child: Image.asset(
+                              poster.imageUrl!,
+                              fit: BoxFit.contain,
+                            ),
                           )
                         : Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16),
                               gradient: LinearGradient(
-                                colors: [OceanColors.accent, OceanColors.oceanBlue],
+                                colors: [
+                                  OceanColors.accent,
+                                  OceanColors.oceanBlue,
+                                ],
                               ),
                             ),
-                            child: const Icon(Icons.image, size: 200, color: Colors.white),
+                            child: const Icon(
+                              Icons.image,
+                              size: 200,
+                              color: Colors.white,
+                            ),
                           ),
                   ),
                 ),
@@ -2825,11 +3220,16 @@ class _PostersScreenState extends State<PostersScreen> with TickerProviderStateM
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Project Showcase', style: Theme.of(context).textTheme.displaySmall),
+                      Text(
+                        'Project Showcase',
+                        style: Theme.of(context).textTheme.displaySmall,
+                      ),
                       const SizedBox(height: 8),
                       Text(
                         'A curated collection of my latest creative works',
-                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: OceanColors.textSecondary),
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: OceanColors.textSecondary,
+                        ),
                       ),
                     ],
                   ),
@@ -2846,21 +3246,22 @@ class _PostersScreenState extends State<PostersScreen> with TickerProviderStateM
                     mainAxisSpacing: 20,
                     crossAxisSpacing: 20,
                   ),
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                      final poster = _filteredPosters[index];
-                      return FadeTransition(
-                        opacity: Tween<double>(begin: 0, end: 1).animate(
-                          CurvedAnimation(
-                            parent: _fadeInController,
-                            curve: Interval(index * 0.1, (index * 0.1) + 0.6, curve: Curves.easeOut),
+                  delegate: SliverChildBuilderDelegate((context, index) {
+                    final poster = _filteredPosters[index];
+                    return FadeTransition(
+                      opacity: Tween<double>(begin: 0, end: 1).animate(
+                        CurvedAnimation(
+                          parent: _fadeInController,
+                          curve: Interval(
+                            index * 0.1,
+                            (index * 0.1) + 0.6,
+                            curve: Curves.easeOut,
                           ),
                         ),
-                        child: _buildProjectCard(context, poster),
-                      );
-                    },
-                    childCount: _filteredPosters.length,
-                  ),
+                      ),
+                      child: _buildProjectCard(context, poster),
+                    );
+                  }, childCount: _filteredPosters.length),
                 ),
               ),
               const SliverToBoxAdapter(child: SizedBox(height: 40)),
@@ -2900,9 +3301,17 @@ class _PostersScreenState extends State<PostersScreen> with TickerProviderStateM
                       ),
                     ),
                     child: poster.imageUrl != null
-                        ? Image.asset(poster.imageUrl!, width: double.infinity, fit: BoxFit.cover)
+                        ? Image.asset(
+                            poster.imageUrl!,
+                            width: double.infinity,
+                            fit: BoxFit.cover,
+                          )
                         : Center(
-                            child: Icon(Icons.image, size: 60, color: OceanColors.accent),
+                            child: Icon(
+                              Icons.image,
+                              size: 60,
+                              color: OceanColors.accent,
+                            ),
                           ),
                   ),
                 ),
@@ -2911,7 +3320,10 @@ class _PostersScreenState extends State<PostersScreen> with TickerProviderStateM
               Expanded(
                 flex: 2,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: 8.0,
+                  ),
                   child: Row(
                     children: [
                       Expanded(
@@ -2921,13 +3333,19 @@ class _PostersScreenState extends State<PostersScreen> with TickerProviderStateM
                           children: [
                             Text(
                               poster.title,
-                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                             ),
                             Text(
                               poster.category,
-                              style: TextStyle(color: OceanColors.accent, fontSize: 12),
+                              style: TextStyle(
+                                color: OceanColors.accent,
+                                fontSize: 12,
+                              ),
                             ),
                           ],
                         ),
@@ -2943,8 +3361,6 @@ class _PostersScreenState extends State<PostersScreen> with TickerProviderStateM
       ),
     );
   }
-
-
 
   Widget _buildAppBar(BuildContext context) {
     return SliverAppBar(
@@ -2984,6 +3400,7 @@ class _PostersScreenState extends State<PostersScreen> with TickerProviderStateM
     );
   }
 }
+
 class ContactsScreen extends StatefulWidget {
   const ContactsScreen({super.key});
 
@@ -2991,13 +3408,17 @@ class ContactsScreen extends StatefulWidget {
   State<ContactsScreen> createState() => _ContactsScreenState();
 }
 
-class _ContactsScreenState extends State<ContactsScreen> with TickerProviderStateMixin {
+class _ContactsScreenState extends State<ContactsScreen>
+    with TickerProviderStateMixin {
   late AnimationController _fadeInController;
 
   @override
   void initState() {
     super.initState();
-    _fadeInController = AnimationController(vsync: this, duration: const Duration(milliseconds: 700));
+    _fadeInController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 700),
+    );
     _fadeInController.forward();
   }
 
@@ -3021,11 +3442,16 @@ class _ContactsScreenState extends State<ContactsScreen> with TickerProviderStat
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Get In Touch', style: Theme.of(context).textTheme.displaySmall),
+                      Text(
+                        'Get In Touch',
+                        style: Theme.of(context).textTheme.displaySmall,
+                      ),
                       const SizedBox(height: 8),
                       Text(
                         'Reach out & let\'s create something amazing',
-                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: OceanColors.textSecondary),
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: OceanColors.textSecondary,
+                        ),
                       ),
                       const SizedBox(height: 40),
                       _buildAnimatedContactCard(
@@ -3034,7 +3460,8 @@ class _ContactsScreenState extends State<ContactsScreen> with TickerProviderStat
                         title: 'Email',
                         subtitle: 'sheilanicoledizon@gmail.com',
                         description: 'Feel free to send me an email anytime!',
-                        onTap: () => _launchUrl('mailto:sheilanicoledizon@gmail.com'),
+                        onTap: () =>
+                            _launchUrl('mailto:sheilanicoledizon@gmail.com'),
                       ),
                       const SizedBox(height: 16),
                       _buildAnimatedContactCard(
@@ -3043,7 +3470,9 @@ class _ContactsScreenState extends State<ContactsScreen> with TickerProviderStat
                         title: 'LinkedIn',
                         subtitle: 'Sheila Nicole Cheng',
                         description: 'Connect with me on LinkedIn',
-                        onTap: () => _launchUrl('https://www.linkedin.com/in/sheila-nicole-cheng-35982b327/'),
+                        onTap: () => _launchUrl(
+                          'https://www.linkedin.com/in/sheila-nicole-cheng-35982b327/',
+                        ),
                       ),
                       const SizedBox(height: 16),
                       _buildAnimatedContactCard(
@@ -3107,16 +3536,25 @@ class _ContactsScreenState extends State<ContactsScreen> with TickerProviderStat
       opacity: Tween<double>(begin: 0, end: 1).animate(
         CurvedAnimation(
           parent: _fadeInController,
-          curve: Interval(index * 0.15, (index * 0.15) + 0.6, curve: Curves.easeOut),
+          curve: Interval(
+            index * 0.15,
+            (index * 0.15) + 0.6,
+            curve: Curves.easeOut,
+          ),
         ),
       ),
       child: SlideTransition(
-        position: Tween<Offset>(begin: const Offset(0.3, 0), end: Offset.zero).animate(
-          CurvedAnimation(
-            parent: _fadeInController,
-            curve: Interval(index * 0.15, (index * 0.15) + 0.6, curve: Curves.easeOutCubic),
-          ),
-        ),
+        position: Tween<Offset>(begin: const Offset(0.3, 0), end: Offset.zero)
+            .animate(
+              CurvedAnimation(
+                parent: _fadeInController,
+                curve: Interval(
+                  index * 0.15,
+                  (index * 0.15) + 0.6,
+                  curve: Curves.easeOutCubic,
+                ),
+              ),
+            ),
         child: _buildContactCard(
           context,
           icon: icon,
@@ -3134,14 +3572,22 @@ class _ContactsScreenState extends State<ContactsScreen> with TickerProviderStat
       opacity: Tween<double>(begin: 0, end: 1).animate(
         CurvedAnimation(
           parent: _fadeInController,
-          curve: Interval(index * 0.15, (index * 0.15) + 0.6, curve: Curves.easeOut),
+          curve: Interval(
+            index * 0.15,
+            (index * 0.15) + 0.6,
+            curve: Curves.easeOut,
+          ),
         ),
       ),
       child: ScaleTransition(
         scale: Tween<double>(begin: 0.8, end: 1).animate(
           CurvedAnimation(
             parent: _fadeInController,
-            curve: Interval(index * 0.15, (index * 0.15) + 0.6, curve: Curves.easeOutBack),
+            curve: Interval(
+              index * 0.15,
+              (index * 0.15) + 0.6,
+              curve: Curves.easeOutBack,
+            ),
           ),
         ),
         child: _buildGetInTouchSection(context),
@@ -3178,14 +3624,21 @@ class _ContactsScreenState extends State<ContactsScreen> with TickerProviderStat
                 const SizedBox(height: 4),
                 Text(
                   subtitle,
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: OceanColors.accent),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyLarge?.copyWith(color: OceanColors.accent),
                 ),
                 const SizedBox(height: 4),
                 Text(description, style: Theme.of(context).textTheme.bodySmall),
               ],
             ),
           ),
-          if (onTap != null) const Icon(Icons.arrow_forward_ios, color: OceanColors.textMuted, size: 16),
+          if (onTap != null)
+            const Icon(
+              Icons.arrow_forward_ios,
+              color: OceanColors.textMuted,
+              size: 16,
+            ),
         ],
       ),
     );
@@ -3196,7 +3649,7 @@ class _ContactsScreenState extends State<ContactsScreen> with TickerProviderStat
     final isTablet = MediaQuery.of(context).size.width < 1024;
     final headingSize = isMobile ? 24.0 : (isTablet ? 28.0 : 36.0);
     final bodySize = isMobile ? 14.0 : (isTablet ? 15.0 : 17.0);
-    
+
     return SizedBox(
       width: double.infinity,
       child: OceanCard(
@@ -3210,10 +3663,17 @@ class _ContactsScreenState extends State<ContactsScreen> with TickerProviderStat
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
-                  colors: [OceanColors.accent.withValues(alpha: 0.3), OceanColors.oceanBlue],
+                  colors: [
+                    OceanColors.accent.withValues(alpha: 0.3),
+                    OceanColors.oceanBlue,
+                  ],
                 ),
               ),
-              child: Icon(Icons.waving_hand, size: 40, color: OceanColors.accent),
+              child: Icon(
+                Icons.waving_hand,
+                size: 40,
+                color: OceanColors.accent,
+              ),
             ),
             const SizedBox(height: 20),
             Column(
@@ -3221,12 +3681,16 @@ class _ContactsScreenState extends State<ContactsScreen> with TickerProviderStat
               children: [
                 Text(
                   'Let\'s Work Together!',
-                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: headingSize),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.headlineMedium?.copyWith(fontSize: headingSize),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 12),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: isMobile ? 0 : 16.0),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: isMobile ? 0 : 16.0,
+                  ),
                   child: Text(
                     'I\'m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.',
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -3275,13 +3739,17 @@ class FriendsScreen extends StatefulWidget {
   State<FriendsScreen> createState() => _FriendsScreenState();
 }
 
-class _FriendsScreenState extends State<FriendsScreen> with TickerProviderStateMixin {
+class _FriendsScreenState extends State<FriendsScreen>
+    with TickerProviderStateMixin {
   late AnimationController _fadeInController;
 
   @override
   void initState() {
     super.initState();
-    _fadeInController = AnimationController(vsync: this, duration: const Duration(milliseconds: 600));
+    _fadeInController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 600),
+    );
     _fadeInController.forward();
   }
 
@@ -3290,6 +3758,7 @@ class _FriendsScreenState extends State<FriendsScreen> with TickerProviderStateM
     _fadeInController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -3307,11 +3776,15 @@ class _FriendsScreenState extends State<FriendsScreen> with TickerProviderStateM
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Friends List', style: Theme.of(context).textTheme.displaySmall),
+                          Text(
+                            'Friends List',
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
                           const SizedBox(height: 8),
                           Text(
                             '${friends.length} friend${friends.length != 1 ? 's' : ''} added',
-                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: OceanColors.textSecondary),
+                            style: Theme.of(context).textTheme.bodyLarge
+                                ?.copyWith(color: OceanColors.textSecondary),
                           ),
                         ],
                       ),
@@ -3328,16 +3801,28 @@ class _FriendsScreenState extends State<FriendsScreen> with TickerProviderStateM
                             opacity: Tween<double>(begin: 0, end: 1).animate(
                               CurvedAnimation(
                                 parent: _fadeInController,
-                                curve: Interval(index * 0.1, (index * 0.1) + 0.6, curve: Curves.easeOut),
+                                curve: Interval(
+                                  index * 0.1,
+                                  (index * 0.1) + 0.6,
+                                  curve: Curves.easeOut,
+                                ),
                               ),
                             ),
                             child: SlideTransition(
-                              position: Tween<Offset>(begin: const Offset(-0.2, 0), end: Offset.zero).animate(
-                                CurvedAnimation(
-                                  parent: _fadeInController,
-                                  curve: Interval(index * 0.1, (index * 0.1) + 0.6, curve: Curves.easeOutCubic),
-                                ),
-                              ),
+                              position:
+                                  Tween<Offset>(
+                                    begin: const Offset(-0.2, 0),
+                                    end: Offset.zero,
+                                  ).animate(
+                                    CurvedAnimation(
+                                      parent: _fadeInController,
+                                      curve: Interval(
+                                        index * 0.1,
+                                        (index * 0.1) + 0.6,
+                                        curve: Curves.easeOutCubic,
+                                      ),
+                                    ),
+                                  ),
                               child: _buildFriendCard(friends[index]),
                             ),
                           ),
@@ -3387,15 +3872,27 @@ class _FriendsScreenState extends State<FriendsScreen> with TickerProviderStateM
           children: [
             Container(
               padding: const EdgeInsets.all(32),
-              decoration: BoxDecoration(shape: BoxShape.circle, color: OceanColors.accent.withValues(alpha: 0.1)),
-              child: Icon(Icons.people_outline, size: 64, color: OceanColors.accent),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: OceanColors.accent.withValues(alpha: 0.1),
+              ),
+              child: Icon(
+                Icons.people_outline,
+                size: 64,
+                color: OceanColors.accent,
+              ),
             ),
             const SizedBox(height: 24),
-            Text('No Friends Yet', style: Theme.of(context).textTheme.headlineMedium),
+            Text(
+              'No Friends Yet',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
             const SizedBox(height: 12),
             Text(
               'Start building your network by adding friends!',
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: OceanColors.textSecondary),
+              style: Theme.of(
+                context,
+              ).textTheme.bodyLarge?.copyWith(color: OceanColors.textSecondary),
               textAlign: TextAlign.center,
             ),
           ],
@@ -3406,20 +3903,23 @@ class _FriendsScreenState extends State<FriendsScreen> with TickerProviderStateM
 
   Widget _buildFriendCard(FriendModel friend) {
     return Dismissible(
-      key: Key(friend.id),
+      key: Key(friend.id ?? 'friend_${friend.hashCode}'),
       direction: DismissDirection.endToStart,
       confirmDismiss: (direction) async {
         return await OceanDialogs.showConfirmation(
           context: context,
           title: 'Delete Friend',
-          message: 'Are you sure you want to remove ${friend.name} from your friends list?',
+          message:
+              'Are you sure you want to remove ${friend.name} from your friends list?',
           icon: Icons.delete,
           confirmText: 'Delete',
           isDangerous: true,
         );
       },
       onDismissed: (direction) {
-        context.read<DataService>().deleteFriend(friend.id);
+        if (friend.id != null) {
+          context.read<DataService>().deleteFriend(friend.id!);
+        }
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('${friend.name} removed'),
@@ -3430,7 +3930,10 @@ class _FriendsScreenState extends State<FriendsScreen> with TickerProviderStateM
       },
       background: Container(
         margin: const EdgeInsets.symmetric(vertical: 8),
-        decoration: BoxDecoration(color: OceanColors.error, borderRadius: BorderRadius.circular(16)),
+        decoration: BoxDecoration(
+          color: OceanColors.error,
+          borderRadius: BorderRadius.circular(16),
+        ),
         alignment: Alignment.centerRight,
         padding: const EdgeInsets.only(right: 20),
         child: const Icon(Icons.delete, color: Colors.white),
@@ -3446,13 +3949,20 @@ class _FriendsScreenState extends State<FriendsScreen> with TickerProviderStateM
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
-                  colors: [OceanColors.accent.withValues(alpha: 0.3), OceanColors.oceanBlue],
+                  colors: [
+                    OceanColors.accent.withValues(alpha: 0.3),
+                    OceanColors.oceanBlue,
+                  ],
                 ),
               ),
               child: Center(
                 child: Text(
                   friend.name.isNotEmpty ? friend.name[0].toUpperCase() : '?',
-                  style: TextStyle(color: OceanColors.accent, fontSize: 24, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    color: OceanColors.accent,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -3461,12 +3971,21 @@ class _FriendsScreenState extends State<FriendsScreen> with TickerProviderStateM
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(friend.name, style: Theme.of(context).textTheme.titleLarge),
+                  Text(
+                    friend.name,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
                   const SizedBox(height: 4),
-                  Text(friend.email, style: Theme.of(context).textTheme.bodyMedium),
+                  Text(
+                    friend.email,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
                   if (friend.phone != null && friend.phone!.isNotEmpty) ...[
                     const SizedBox(height: 2),
-                    Text(friend.phone!, style: Theme.of(context).textTheme.bodySmall),
+                    Text(
+                      friend.phone!,
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
                   ],
                 ],
               ),
@@ -3479,7 +3998,10 @@ class _FriendsScreenState extends State<FriendsScreen> with TickerProviderStateM
                   onPressed: () => _showAddEditFriendDialog(friend: friend),
                 ),
                 IconButton(
-                  icon: const Icon(Icons.delete_outline, color: OceanColors.error),
+                  icon: const Icon(
+                    Icons.delete_outline,
+                    color: OceanColors.error,
+                  ),
                   onPressed: () => _deleteFriend(friend),
                 ),
               ],
@@ -3510,34 +4032,51 @@ class _FriendsScreenState extends State<FriendsScreen> with TickerProviderStateM
               children: [
                 TextFormField(
                   controller: nameController,
-                  decoration: const InputDecoration(labelText: 'Name', prefixIcon: Icon(Icons.person)),
+                  decoration: const InputDecoration(
+                    labelText: 'Name',
+                    prefixIcon: Icon(Icons.person),
+                  ),
                   validator: (value) {
-                    if (value == null || value.trim().isEmpty) return 'Name is required';
+                    if (value == null || value.trim().isEmpty)
+                      return 'Name is required';
                     return null;
                   },
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
                   controller: emailController,
-                  decoration: const InputDecoration(labelText: 'Email', prefixIcon: Icon(Icons.email)),
+                  decoration: const InputDecoration(
+                    labelText: 'Email',
+                    prefixIcon: Icon(Icons.email),
+                  ),
                   keyboardType: TextInputType.emailAddress,
                   validator: (value) {
-                    if (value == null || value.trim().isEmpty) return 'Email is required';
-                    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
-                    if (!emailRegex.hasMatch(value.trim())) return 'Please enter a valid email';
+                    if (value == null || value.trim().isEmpty)
+                      return 'Email is required';
+                    final emailRegex = RegExp(
+                      r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                    );
+                    if (!emailRegex.hasMatch(value.trim()))
+                      return 'Please enter a valid email';
                     return null;
                   },
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
                   controller: phoneController,
-                  decoration: const InputDecoration(labelText: 'Phone (optional)', prefixIcon: Icon(Icons.phone)),
+                  decoration: const InputDecoration(
+                    labelText: 'Phone (optional)',
+                    prefixIcon: Icon(Icons.phone),
+                  ),
                   keyboardType: TextInputType.phone,
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
                   controller: notesController,
-                  decoration: const InputDecoration(labelText: 'Notes (optional)', prefixIcon: Icon(Icons.note)),
+                  decoration: const InputDecoration(
+                    labelText: 'Notes (optional)',
+                    prefixIcon: Icon(Icons.note),
+                  ),
                   maxLines: 2,
                 ),
               ],
@@ -3545,7 +4084,10 @@ class _FriendsScreenState extends State<FriendsScreen> with TickerProviderStateM
           ),
         ),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Cancel')),
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Cancel'),
+          ),
           ElevatedButton(
             onPressed: () {
               if (formKey.currentState!.validate()) {
@@ -3565,8 +4107,12 @@ class _FriendsScreenState extends State<FriendsScreen> with TickerProviderStateM
         final updatedFriend = friend.copyWith(
           name: nameController.text.trim(),
           email: emailController.text.trim(),
-          phone: phoneController.text.trim().isEmpty ? null : phoneController.text.trim(),
-          notes: notesController.text.trim().isEmpty ? null : notesController.text.trim(),
+          phone: phoneController.text.trim().isEmpty
+              ? null
+              : phoneController.text.trim(),
+          notes: notesController.text.trim().isEmpty
+              ? null
+              : notesController.text.trim(),
         );
         await dataService.updateFriend(updatedFriend);
 
@@ -3584,8 +4130,12 @@ class _FriendsScreenState extends State<FriendsScreen> with TickerProviderStateM
           id: DateTime.now().millisecondsSinceEpoch.toString(),
           name: nameController.text.trim(),
           email: emailController.text.trim(),
-          phone: phoneController.text.trim().isEmpty ? null : phoneController.text.trim(),
-          notes: notesController.text.trim().isEmpty ? null : notesController.text.trim(),
+          phone: phoneController.text.trim().isEmpty
+              ? null
+              : phoneController.text.trim(),
+          notes: notesController.text.trim().isEmpty
+              ? null
+              : notesController.text.trim(),
         );
         await dataService.addFriend(newFriend);
 
@@ -3611,14 +4161,15 @@ class _FriendsScreenState extends State<FriendsScreen> with TickerProviderStateM
     final confirmed = await OceanDialogs.showConfirmation(
       context: context,
       title: 'Delete Friend',
-      message: 'Are you sure you want to remove ${friend.name} from your friends list?',
+      message:
+          'Are you sure you want to remove ${friend.name} from your friends list?',
       icon: Icons.delete,
       confirmText: 'Delete',
       isDangerous: true,
     );
 
-    if (confirmed == true && mounted) {
-      await context.read<DataService>().deleteFriend(friend.id);
+    if (confirmed == true && mounted && friend.id != null) {
+      await context.read<DataService>().deleteFriend(friend.id!);
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -3632,7 +4183,6 @@ class _FriendsScreenState extends State<FriendsScreen> with TickerProviderStateM
     }
   }
 }
-
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -3656,11 +4206,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Settings', style: Theme.of(context).textTheme.displaySmall),
+                      Text(
+                        'Settings',
+                        style: Theme.of(context).textTheme.displaySmall,
+                      ),
                       const SizedBox(height: 8),
                       Text(
                         'Manage your app preferences',
-                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: OceanColors.textSecondary),
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: OceanColors.textSecondary,
+                        ),
                       ),
                       const SizedBox(height: 32),
                       _buildHueSection(context),
@@ -3734,7 +4289,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
           padding: const EdgeInsets.only(left: 4, bottom: 12),
           child: Text(
             'Appearance',
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(color: OceanColors.accent),
+            style: Theme.of(
+              context,
+            ).textTheme.titleLarge?.copyWith(color: OceanColors.accent),
           ),
         ),
         OceanCard(
@@ -3757,10 +4314,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Theme Hue', style: Theme.of(context).textTheme.titleMedium),
+                        Text(
+                          'Theme Hue',
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
                         const SizedBox(height: 2),
                         Text(
-                          currentHue == 0 ? 'Default Ocean' : 'Shifted ${currentHue.round()}Â°',
+                          currentHue == 0
+                              ? 'Default Ocean'
+                              : 'Shifted ${currentHue.round()}Â°',
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ],
@@ -3825,7 +4387,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  Widget _buildHuePreset(BuildContext context, String label, double hue, HueService hueService) {
+  Widget _buildHuePreset(
+    BuildContext context,
+    String label,
+    double hue,
+    HueService hueService,
+  ) {
     final previewColor = hueService.shiftColor(const Color(0xFF64b4dc));
     final targetColor = HSLColor.fromColor(const Color(0xFF64b4dc))
         .withHue((HSLColor.fromColor(const Color(0xFF64b4dc)).hue + hue) % 360)
@@ -3837,10 +4404,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         decoration: BoxDecoration(
-          color: isSelected ? targetColor.withValues(alpha: 0.3) : OceanColors.surfaceDark,
+          color: isSelected
+              ? targetColor.withValues(alpha: 0.3)
+              : OceanColors.surfaceDark,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: isSelected ? targetColor : targetColor.withValues(alpha: 0.4),
+            color: isSelected
+                ? targetColor
+                : targetColor.withValues(alpha: 0.4),
             width: isSelected ? 2 : 1,
           ),
         ),
@@ -3888,7 +4459,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  Widget _buildSection(BuildContext context, {required String title, required List<Widget> children}) {
+  Widget _buildSection(
+    BuildContext context, {
+    required String title,
+    required List<Widget> children,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -3896,7 +4471,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
           padding: const EdgeInsets.only(left: 4, bottom: 12),
           child: Text(
             title,
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(color: OceanColors.accent),
+            style: Theme.of(
+              context,
+            ).textTheme.titleLarge?.copyWith(color: OceanColors.accent),
           ),
         ),
         OceanCard(
@@ -3919,14 +4496,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
       leading: Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: (isDestructive ? OceanColors.error : OceanColors.accent).withValues(alpha: 0.2),
+          color: (isDestructive ? OceanColors.error : OceanColors.accent)
+              .withValues(alpha: 0.2),
           borderRadius: BorderRadius.circular(8),
         ),
-        child: Icon(icon, color: isDestructive ? OceanColors.error : OceanColors.accent, size: 20),
+        child: Icon(
+          icon,
+          color: isDestructive ? OceanColors.error : OceanColors.accent,
+          size: 20,
+        ),
       ),
-      title: Text(title, style: TextStyle(color: isDestructive ? OceanColors.error : null)),
+      title: Text(
+        title,
+        style: TextStyle(color: isDestructive ? OceanColors.error : null),
+      ),
       subtitle: Text(subtitle),
-      trailing: onTap != null ? const Icon(Icons.arrow_forward_ios, size: 16) : null,
+      trailing: onTap != null
+          ? const Icon(Icons.arrow_forward_ios, size: 16)
+          : null,
       onTap: onTap,
     );
   }
@@ -3942,14 +4529,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               gradient: RadialGradient(
-                colors: [OceanColors.accent.withValues(alpha: 0.4), OceanColors.oceanBlue],
+                colors: [
+                  OceanColors.accent.withValues(alpha: 0.4),
+                  OceanColors.oceanBlue,
+                ],
               ),
-              boxShadow: [BoxShadow(color: OceanColors.accent.withValues(alpha: 0.3), blurRadius: 20, spreadRadius: 2)],
+              boxShadow: [
+                BoxShadow(
+                  color: OceanColors.accent.withValues(alpha: 0.3),
+                  blurRadius: 20,
+                  spreadRadius: 2,
+                ),
+              ],
             ),
             child: Icon(Icons.water_drop, size: 40, color: OceanColors.accent),
           ),
           const SizedBox(height: 16),
-          Text('Portfolio App', style: Theme.of(context).textTheme.headlineMedium),
+          Text(
+            'Portfolio App',
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
           const SizedBox(height: 8),
           Text('Version 1.0.0', style: Theme.of(context).textTheme.bodyMedium),
           const SizedBox(height: 16),
@@ -3975,76 +4574,77 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ],
           ),
         ],
-        ),
-      );
-    }
-  }
-  
-    Future<void> _resetProfileData(BuildContext context) async {
-      final confirmed = await OceanDialogs.showConfirmation(
-      context: context,
-      title: 'Reset Profile Data',
-      message: 'Are you sure you want to reset all profile data to default values? This action cannot be undone.',
-      icon: Icons.delete_forever,
-      confirmText: 'Reset',
-      isDangerous: true,
-    );
-
-    if (confirmed == true && context.mounted) {
-      await context.read<DataService>().deleteProfileData();
-
-      if (context.mounted) {
-        await OceanDialogs.showSuccess(
-          context: context,
-          title: 'Reset Complete',
-          message: 'Your profile data has been reset to default values.',
-        );
-      }
-    }
-  }
-
-  void _showAboutDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Row(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: OceanColors.accent.withValues(alpha: 0.2),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Icon(Icons.water_drop, color: OceanColors.accent),
-            ),
-            const SizedBox(width: 12),
-            const Text('Portfolio App'),
-          ],
-        ),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text('Version 1.0.0'),
-            const SizedBox(height: 16),
-            const Text(
-              'A beautiful portfolio application built with Flutter, '
-              'featuring a deep ocean theme with floating particles '
-              'and smooth animations.',
-            ),
-            const SizedBox(height: 16),
-            Text(
-              'Â© 2026 Sheila Nicole Cheng',
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
-          ],
-        ),
-        actions: [
-          ElevatedButton(onPressed: () => Navigator.pop(context), child: const Text('Close')),
-        ],
       ),
     );
   }
+}
 
+Future<void> _resetProfileData(BuildContext context) async {
+  final confirmed = await OceanDialogs.showConfirmation(
+    context: context,
+    title: 'Reset Profile Data',
+    message:
+        'Are you sure you want to reset all profile data to default values? This action cannot be undone.',
+    icon: Icons.delete_forever,
+    confirmText: 'Reset',
+    isDangerous: true,
+  );
 
+  if (confirmed == true && context.mounted) {
+    await context.read<DataService>().deleteProfileData();
 
+    if (context.mounted) {
+      await OceanDialogs.showSuccess(
+        context: context,
+        title: 'Reset Complete',
+        message: 'Your profile data has been reset to default values.',
+      );
+    }
+  }
+}
+
+void _showAboutDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: OceanColors.accent.withValues(alpha: 0.2),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Icon(Icons.water_drop, color: OceanColors.accent),
+          ),
+          const SizedBox(width: 12),
+          const Text('Portfolio App'),
+        ],
+      ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('Version 1.0.0'),
+          const SizedBox(height: 16),
+          const Text(
+            'A beautiful portfolio application built with Flutter, '
+            'featuring a deep ocean theme with floating particles '
+            'and smooth animations.',
+          ),
+          const SizedBox(height: 16),
+          Text(
+            'Â© 2026 Sheila Nicole Cheng',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+        ],
+      ),
+      actions: [
+        ElevatedButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text('Close'),
+        ),
+      ],
+    ),
+  );
+}
