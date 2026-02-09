@@ -10,10 +10,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:async'; 
 import 'dart:ui';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 
 // ============================================================================
-// MODELS um
+// MODELS
 // ============================================================================
 
 class ProfileModel {
@@ -182,52 +183,58 @@ class ProjectModel {
 }
 
 class FriendModel {
-  final String id;
+  final String? id; 
   String name;
   String email;
   String? phone;
   String? notes;
 
   FriendModel({
-    required this.id,
+    this.id,
     required this.name,
     required this.email,
     this.phone,
     this.notes,
   });
 
+  factory FriendModel.fromJson(Map<String, dynamic> json) {
+    return FriendModel(
+      id: json['id']?.toString(),
+      name: json['name'] ?? '',
+      email: json['email'] ?? '',
+      phone: json['phone'],
+      notes: json['notes'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = {
+      'name': name,
+      'email': email,
+      'phone': phone,
+      'notes': notes,
+    };
+    
+    if (id != null) {
+      data['id'] = id;
+    }
+    
+    return data;
+  }
+
   FriendModel copyWith({
+    String? id,
     String? name,
     String? email,
     String? phone,
     String? notes,
   }) {
     return FriendModel(
-      id: id,
+      id: id ?? this.id,
       name: name ?? this.name,
       email: email ?? this.email,
       phone: phone ?? this.phone,
       notes: notes ?? this.notes,
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'name': name,
-      'email': email,
-      'phone': phone,
-      'notes': notes,
-    };
-  }
-
-  factory FriendModel.fromJson(Map<String, dynamic> json) {
-    return FriendModel(
-      id: json['id'] ?? '',
-      name: json['name'] ?? '',
-      email: json['email'] ?? '',
-      phone: json['phone'],
-      notes: json['notes'],
     );
   }
 }
@@ -563,72 +570,87 @@ class OceanGradients {
 // ============================================================================
 
 class DataService extends ChangeNotifier {
-  ProfileModel _profile = ProfileModel.defaultProfile();
-  List<FriendModel> _friends = [];
 
-  ProfileModel get profile => _profile;
+  final _supabase = Supabase.instance.client;
+
+  List<FriendModel> _friends = [];
   List<FriendModel> get friends => _friends;
+  
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
+
+  ProfileModel _profile = ProfileModel.defaultProfile();
+  ProfileModel get profile => _profile;
 
   DataService() {
-    _loadData();
+
+    fetchFriends();
   }
 
-  Future<void> _loadData() async {
-    final prefs = await SharedPreferences.getInstance();
-    final profileJson = prefs.getString('profile');
-    if (profileJson != null) {
-      _profile = ProfileModel.fromJson(jsonDecode(profileJson));
-    }
-    final friendsJson = prefs.getString('friends');
-    if (friendsJson != null) {
-      final List<dynamic> friendsList = jsonDecode(friendsJson);
-      _friends = friendsList.map((json) => FriendModel.fromJson(json)).toList();
-    }
+  Future<void> fetchFriends() async {
+    _isLoading = true;
     notifyListeners();
-  }
 
-  Future<void> _saveProfile() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('profile', jsonEncode(_profile.toJson()));
-  }
+    try {
+      final response = await _supabase
+          .from('friends')
+          .select()
+          .order('created_at', ascending: false);
 
-  Future<void> _saveFriends() async {
-    final prefs = await SharedPreferences.getInstance();
-    final friendsJson = _friends.map((f) => f.toJson()).toList();
-    await prefs.setString('friends', jsonEncode(friendsJson));
-  }
-
-  Future<void> updateProfile(ProfileModel newProfile) async {
-    _profile = newProfile;
-    await _saveProfile();
-    notifyListeners();
-  }
-
-  Future<void> deleteProfileData() async {
-    _profile = ProfileModel.defaultProfile();
-    await _saveProfile();
-    notifyListeners();
-  }
-
-  Future<void> addFriend(FriendModel friend) async {
-    _friends.add(friend);
-    await _saveFriends();
-    notifyListeners();
-  }
-
-  Future<void> updateFriend(FriendModel friend) async {
-    final index = _friends.indexWhere((f) => f.id == friend.id);
-    if (index != -1) {
-      _friends[index] = friend;
-      await _saveFriends();
+      final data = response as List<dynamic>;
+      _friends = data.map((json) => FriendModel.fromJson(json)).toList();
+    } catch (e) {
+      debugPrint('Error fetching friends: $e');
+    } finally {
+      _isLoading = false;
       notifyListeners();
     }
   }
 
+  Future<void> addFriend(FriendModel friend) async {
+    try {
+      final response = await _supabase
+          .from('friends')
+          .insert(friend.toJson())
+          .select()
+          .single();
+
+      final newFriend = FriendModel.fromJson(response);
+      _friends.insert(0, newFriend);
+      notifyListeners();
+    } catch (e) {
+      debugPrint('Error adding friend: $e');
+    }
+  }
+
+  Future<void> updateFriend(FriendModel friend) async {
+    if (friend.id == null) return;
+
+    try {
+      await _supabase
+          .from('friends')
+          .update(friend.toJson())
+          .eq('id', friend.id!);
+
+      final index = _friends.indexWhere((f) => f.id == friend.id);
+      if (index != -1) {
+        _friends[index] = friend;
+        notifyListeners();
+      }
+    } catch (e) {
+      debugPrint('Error updating friend: $e');
+    }
+  }
+
   Future<void> deleteFriend(String id) async {
-    _friends.removeWhere((f) => f.id == id);
-    await _saveFriends();
-    notifyListeners();
+    try {
+      await _supabase.from('friends').delete().eq('id', id);
+      
+      _friends.removeWhere((f) => f.id == id);
+      notifyListeners();
+    } catch (e) {
+      debugPrint('Error deleting friend: $e');
+    }
   }
 }
 
@@ -1419,8 +1441,14 @@ class OceanDialogs {
 // SCREENS
 // ============================================================================
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Supabase.initialize(
+    url: 'https://esumhbmbcvwoibbowtzp.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzdW1oYm1iY3Z3b2liYm93dHpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2MzIwNzEsImV4cCI6MjA4NjIwODA3MX0.Bv5AW17civ5QAuV3AoBG7R-7iXvEVxMMNDzUp0YeiCk',
+  );
+
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -1428,7 +1456,16 @@ void main() {
       systemNavigationBarIconBrightness: Brightness.light,
     ),
   );
-  runApp(const PortfolioApp());
+
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => DataService()),
+        ChangeNotifierProvider(create: (_) => HueService()),
+      ],
+      child: const PortfolioApp(),
+    ),
+  );
 }
 
 class PortfolioApp extends StatelessWidget {
