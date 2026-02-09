@@ -2542,6 +2542,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     ),
     keyboardType: TextInputType.phone,
     validator: _validatePhoneNumber,
+    textInputAction: TextInputAction.next,
+  );
+
+  Widget _buildLinkedInField() => TextFormField(
     controller: _linkedInController,
     decoration: const InputDecoration(
       labelText: 'LinkedIn URL',
@@ -3738,21 +3742,6 @@ class _ContactsScreenState extends State<ContactsScreen>
     );
   }
 
-  Widget _buildSocialButton(IconData icon, VoidCallback onTap) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: OceanColors.accent.withValues(alpha: 0.2),
-          border: Border.all(color: OceanColors.accent.withValues(alpha: 0.5)),
-        ),
-        child: Icon(icon, color: OceanColors.accent),
-      ),
-    );
-  }
-
   Future<void> _launchUrl(String url) async {
     final uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
@@ -4461,7 +4450,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     double hue,
     HueService hueService,
   ) {
-    final previewColor = hueService.shiftColor(const Color(0xFF64b4dc));
     final targetColor = HSLColor.fromColor(const Color(0xFF64b4dc))
         .withHue((HSLColor.fromColor(const Color(0xFF64b4dc)).hue + hue) % 360)
         .toColor();
