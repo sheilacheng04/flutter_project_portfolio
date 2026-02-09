@@ -631,6 +631,7 @@ class DataService extends ChangeNotifier {
     notifyListeners();
 
     try {
+      debugPrint('Fetching friends from Supabase...');
       final response = await _supabase
           .from('friends')
           .select()
@@ -638,8 +639,10 @@ class DataService extends ChangeNotifier {
 
       final data = response as List<dynamic>;
       _friends = data.map((json) => FriendModel.fromJson(json)).toList();
+      debugPrint('Successfully fetched ${_friends.length} friends');
     } catch (e) {
       debugPrint('Error fetching friends: $e');
+      // Don't clear the friends list on error, just log it
     } finally {
       _isLoading = false;
       notifyListeners();
@@ -648,17 +651,29 @@ class DataService extends ChangeNotifier {
 
   Future<void> addFriend(FriendModel friend) async {
     try {
+      // Don't include the id in the data sent to Supabase - let it auto-generate
+      final friendData = {
+        'name': friend.name,
+        'email': friend.email,
+        'phone': friend.phone,
+        'notes': friend.notes,
+      };
+
       final response = await _supabase
           .from('friends')
-          .insert(friend.toJson())
+          .insert(friendData)
           .select()
           .single();
 
       final newFriend = FriendModel.fromJson(response);
       _friends.insert(0, newFriend);
       notifyListeners();
+      debugPrint(
+        'Friend added successfully: ${newFriend.name} with ID: ${newFriend.id}',
+      );
     } catch (e) {
       debugPrint('Error adding friend: $e');
+      rethrow; // Re-throw the error so the UI can handle it
     }
   }
 
@@ -4127,7 +4142,7 @@ class _FriendsScreenState extends State<FriendsScreen>
         }
       } else {
         final newFriend = FriendModel(
-          id: DateTime.now().millisecondsSinceEpoch.toString(),
+          // Don't set ID - let Supabase auto-generate it
           name: nameController.text.trim(),
           email: emailController.text.trim(),
           phone: phoneController.text.trim().isEmpty
@@ -4137,16 +4152,31 @@ class _FriendsScreenState extends State<FriendsScreen>
               ? null
               : notesController.text.trim(),
         );
-        await dataService.addFriend(newFriend);
 
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Friend added successfully'),
-              backgroundColor: OceanColors.success,
-              behavior: SnackBarBehavior.floating,
-            ),
-          );
+        try {
+          await dataService.addFriend(newFriend);
+          // Refresh the friends list to ensure UI is updated
+          await dataService.fetchFriends();
+
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Friend added successfully'),
+                backgroundColor: OceanColors.success,
+                behavior: SnackBarBehavior.floating,
+              ),
+            );
+          }
+        } catch (e) {
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text('Failed to add friend: $e'),
+                backgroundColor: OceanColors.error,
+                behavior: SnackBarBehavior.floating,
+              ),
+            );
+          }
         }
       }
     }
