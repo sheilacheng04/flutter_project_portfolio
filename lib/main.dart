@@ -2525,8 +2525,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     validator: (value) {
       if (value == null || value.trim().isEmpty) return 'Email is required';
       final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
-      if (!emailRegex.hasMatch(value.trim()))
+      if (!emailRegex.hasMatch(value.trim())) {
         return 'Please enter a valid email address';
+      }
       return null;
     },
     textInputAction: TextInputAction.next,
@@ -2565,8 +2566,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       helperText: 'e.g., Flutter, Web Development, UI Design',
     ),
     validator: (value) {
-      if (value == null || value.trim().isEmpty)
+      if (value == null || value.trim().isEmpty) {
         return 'Please enter at least one skill';
+      }
       return null;
     },
   );
@@ -3922,7 +3924,7 @@ class _FriendsScreenState extends State<FriendsScreen>
   Widget _buildFriendCard(FriendModel friend) {
     return Dismissible(
       key: Key(friend.id ?? 'friend_${friend.hashCode}'),
-      direction: DismissDirection.endToStart,
+      direction: DismissDirection.startToEnd,
       confirmDismiss: (direction) async {
         return await OceanDialogs.showConfirmation(
           context: context,
@@ -4055,8 +4057,9 @@ class _FriendsScreenState extends State<FriendsScreen>
                     prefixIcon: Icon(Icons.person),
                   ),
                   validator: (value) {
-                    if (value == null || value.trim().isEmpty)
+                    if (value == null || value.trim().isEmpty) {
                       return 'Name is required';
+                    }
                     return null;
                   },
                 ),
@@ -4069,13 +4072,15 @@ class _FriendsScreenState extends State<FriendsScreen>
                   ),
                   keyboardType: TextInputType.emailAddress,
                   validator: (value) {
-                    if (value == null || value.trim().isEmpty)
+                    if (value == null || value.trim().isEmpty) {
                       return 'Email is required';
+                    }
                     final emailRegex = RegExp(
                       r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
                     );
-                    if (!emailRegex.hasMatch(value.trim()))
+                    if (!emailRegex.hasMatch(value.trim())) {
                       return 'Please enter a valid email';
+                    }
                     return null;
                   },
                 ),
